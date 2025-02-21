@@ -1,0 +1,22 @@
+<div class="registration-screen">
+  <h1>Juego de Piedra, Papel y tijeras</h1>
+  <div class="icons">
+    <span class="icon">✊</span>
+    <span class="icon">✋</span>
+    <span class="icon">✌️</span>
+  </div>
+  <label class="reg-label">Por favor registre los jugadores</label>
+  <p class="error" [class.hidden]="!errorMessage">{{ errorMessage }}</p>
+  <div class="reg-form">
+    <label>Jugador 1:</label>
+    <input type="text" [value]="player1"
+      (input)="onInputPlayer1($event)"
+      (blur)="onBlurPlayer1()" />
+    <label>Jugador 2:</label>
+    <input type="text" [value]="player2"
+      (input)="onInputPlayer2($event)"
+      (blur)="onBlurPlayer2()" />
+  </div>
+  <br>
+  <button (click)="startGame()">Iniciar Batalla</button>
+</div>

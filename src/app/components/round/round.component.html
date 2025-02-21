@@ -1,0 +1,47 @@
+<div class="round-screen">
+  <h2 id="round-title">Ronda {{ currentRound }}</h2>
+  <div id="player-turn">
+    <label id="current-player-label">Turno de: {{ currentPlayerName }}</label>
+    <div class="move-options">
+      <label>Seleccione el movimiento</label>
+      <div class="buttons">
+        <button *ngFor="let m of moves" (click)="playMove(m)">
+          {{ m === 'piedra' ? '✊' : m === 'papel' ? '✋' : '✌️' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ícono grande que aparece brevemente -->
+  <div class="selected-icon-overlay" *ngIf="showSelectedIcon">
+    <span>{{ selectedMoveIcon }}</span>
+  </div>
+
+  <div id="result-partial" [class.hidden]="!showPartial">
+    <div class="result-box">
+      <h2 id="result-title">
+        {{ showPartial ? 'Resultado Parcial' : '' }}
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Ronda</th>
+            <th>Ganador</th>
+            <th>Movimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of rounds">
+            <td>{{ r.round }}</td>
+            <td>{{ r.winner === 'Empate' ? 'Empate' : r.winnerName }}</td>
+            <td>
+              <span>{{ r.move1 === 'piedra' ? '✊' : r.move1 === 'papel' ? '✋' : r.move1 === 'tijera' ? '✌️' : '' }}</span>
+              <span> vs </span>
+              <span>{{ r.move2 === 'piedra' ? '✊' : r.move2 === 'papel' ? '✋' : r.move2 === 'tijera' ? '✌️' : '' }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

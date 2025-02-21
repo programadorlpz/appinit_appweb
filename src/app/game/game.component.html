@@ -1,0 +1,17 @@
+<section class="game-container">
+  <app-register
+    *ngIf="view === 'register'"
+    (playersRegistered)="onPlayersRegistered()"
+  ></app-register>
+
+  <app-round
+    *ngIf="view === 'round'"
+    (winnerDetected)="onShowResult()"
+  ></app-round>
+
+  <app-result
+    *ngIf="view === 'result'"
+    (rematch)="onRematch()"
+    (newGame)="onNewGame()"
+  ></app-result>
+</section>

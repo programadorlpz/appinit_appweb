@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  .final-screen {
+    margin-top: 40px;
+    text-align: center;
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
+    .final-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 20px;
+      button {
+        padding: 12px 24px;
+        font-size: 1.1em;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+        &:hover {
+          background: #ccc;
+        }
+      }
+      @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+}
